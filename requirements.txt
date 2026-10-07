@@ -1,0 +1,20 @@
+Flask==3.0.3
+Werkzeug==3.0.3
+Flask-SQLAlchemy==3.1.1
+Flask-SocketIO==5.6.1
+python-socketio==5.16.4
+Authlib==1.8.0
+Flask-WTF==1.3.0
+python-dotenv==1.2.2
+requests==2.33.1
+
+# Production deployment (Render/Railway/etc.) - see README "Deploying".
+gunicorn==23.0.0
+eventlet==0.38.0
+psycopg2-binary==2.9.10
+
+# Optional - only needed for the features they power. The app runs and
+# degrades gracefully without any of these installed/configured.
+# twilio==9.3.7                  # real SMS delivery for OTP codes (see otp.py)
+# openai==1.54.0                 # voice ordering: Whisper transcription (see voice_ai.py)
+# google-generativeai==0.8.6     # voice ordering: smarter multi-item extraction (see voice_ai.py)

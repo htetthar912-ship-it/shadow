@@ -1,0 +1,35 @@
+Shadow App - Final deploy notes
+================================
+
+ADMIN LOGIN (Password tab on Login screen)
+  Username: [ADMIN_USERNAME]     Password: [ADMIN_PASSWORD]
+  Username: [ADMIN_USERNAME]2    Password: [ADMIN_PASSWORD]
+
+  Defined in: app.py → ensure_admin_accounts()
+
+OPTIONAL KEYS (Railway Variables)
+  SMS (real OTP to phone):
+    SMS_BACKEND=twilio
+    TWILIO_ACCOUNT_SID=...
+    TWILIO_AUTH_TOKEN=...
+    TWILIO_FROM_NUMBER=...
+  Or custom Myanmar SMS gateway:
+    SMS_BACKEND=custom_http
+    SMS_API_URL=...
+    SMS_API_KEY=...
+
+  Google Sign-In (optional):
+    GOOGLE_CLIENT_ID=...
+    GOOGLE_CLIENT_SECRET=...
+    (from Google Cloud Console → APIs → OAuth client)
+
+  SECRET_KEY=any-long-random-string
+
+Without SMS vars: OTP code appears in terminal / Railway logs only.
+Without Google vars: use Phone OTP or Password login.
+
+FEATURES CHECKED
+  - Map: live GPS (watchPosition) on Nearby + Address picker; satellite hybrid tiles
+  - Chat: Socket.IO text/emoji/voice/image, reply, edit, delete, read receipts
+  - Order placed → seller gets new_order socket event (seller_notify.js)
+  - Seller confirms/updates status → customer gets order_status_update (customer_notify.js)
